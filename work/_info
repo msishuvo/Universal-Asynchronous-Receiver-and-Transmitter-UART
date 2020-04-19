@@ -1,0 +1,73 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/Study/Programs/Verilog/Tahoe
+vtop
+Z0 !s110 1556361034
+!i10b 1
+!s100 H8C<6?@HD`5O69b^Dg?gz3
+I6Y08_JLUZ5Dge0Q]U<QMK0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/Study/Project/Verilog
+w1556361031
+8D:/Study/Project/Verilog/top.v
+FD:/Study/Project/Verilog/top.v
+L0 3
+Z3 OP;L;10.4a;61
+r1
+!s85 0
+31
+Z4 !s108 1556361034.000000
+!s107 D:/Study/Project/Verilog/top.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Study/Project/Verilog/top.v|
+!s101 -O0
+!i113 1
+Z5 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+vu_receiver
+R0
+!i10b 1
+!s100 Dkh8=DoP]h4V@<mDiTgn^3
+I=HC0XHLiHBMBLE^QddY653
+R1
+R2
+w1556360873
+8D:/Study/Project/Verilog/receiver.v
+FD:/Study/Project/Verilog/receiver.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Study/Project/Verilog/receiver.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Study/Project/Verilog/receiver.v|
+!s101 -O0
+!i113 1
+R5
+vu_transmitter
+R0
+!i10b 1
+!s100 fdN@m7fYU6EhYlFd98P6O2
+I4RVjJ1JXDhlal^XIIb8mF1
+R1
+R2
+w1556360883
+8D:/Study/Project/Verilog/transmitter.v
+FD:/Study/Project/Verilog/transmitter.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Study/Project/Verilog/transmitter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Study/Project/Verilog/transmitter.v|
+!s101 -O0
+!i113 1
+R5

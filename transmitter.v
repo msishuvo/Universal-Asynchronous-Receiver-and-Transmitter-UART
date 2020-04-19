@@ -1,0 +1,97 @@
+`timescale 1ns/1ps
+//15 MHz Clock / 115200 = 130 baud rate
+module u_transmitter #(parameter clocks_per_bit = 520) 
+		   (input clk, input [7:0] parallel_data, input data_valid, output active, output reg serial_data, output complete);
+	
+	//State Machine initialize
+	parameter INITIAL = 3'b000;
+	parameter START = 3'b001;
+	parameter DATA = 3'b010;
+	parameter STOP = 3'b011;
+	parameter RESET = 3'b100;
+
+	//initializing the variables
+	reg [7:0] clock_counter = 0;
+	reg [2:0] index = 0;
+	reg [7:0] data = 0;
+	reg r_active = 0;
+	reg r_complete = 0;
+	reg [2:0] FSM = 0;
+
+	assign active = r_active;
+  	assign complete   = r_complete;
+
+	//State Machine Protocol
+	always @(posedge clk) begin
+		case (FSM)
+			INITIAL: begin
+				serial_data <= 1'b1;
+				r_complete <= 1'b0;
+				clock_counter <= 0;
+				index <= 0;
+
+				if (data_valid == 1'b1) begin
+					r_active <= 1'b1; 
+					data <= parallel_data;
+					FSM <= START;
+				end
+				else
+					FSM <= INITIAL;
+			end
+		
+			START: begin
+				serial_data <= 1'b0;
+				if (clock_counter < clocks_per_bit - 1) begin //cheking the clock for data
+					clock_counter <= clock_counter + 1;
+					FSM <= START;
+				end
+				else begin
+					clock_counter <= 0;
+					FSM <= DATA;
+				end
+			end
+			
+			DATA: begin
+				serial_data <= data[index];
+				if (clock_counter < clocks_per_bit -1) begin
+					clock_counter <= clock_counter + 1;
+					FSM <= DATA;
+				end
+				else begin
+					clock_counter <= 0;
+					if(index < 7) begin //checking if all the data is recieved
+						index <= index + 1;
+						FSM <= DATA;
+					end
+					else begin
+						index <= 0;
+						FSM <= STOP;
+					end
+				end
+			end
+
+			STOP: begin
+				serial_data <= 1'b1;
+				if (clock_counter < clocks_per_bit -1) begin
+					clock_counter <= clock_counter + 1;
+					FSM <= STOP;
+				end
+				else begin
+					r_complete <= 1'b1;
+					clock_counter <= 0;
+					FSM <= RESET;
+					r_active <= 1'b0;
+				end
+			end
+
+			RESET: begin //reset the state machine
+				r_complete <= 1'b1;
+				FSM <= INITIAL;
+			end
+			
+			default:
+				FSM <= INITIAL;
+		endcase
+	end
+endmodule
+				
