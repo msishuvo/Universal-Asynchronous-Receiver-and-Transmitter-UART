@@ -16,3 +16,6 @@ Start Bit: Always low and initially the receiver is driven high. Whenever zero i
 
 ## Reciever Operation
 ![recieve](https://user-images.githubusercontent.com/16850746/79694851-e2cbd000-8294-11ea-9099-b423fa2d3975.PNG)
+
+### EDAPLAYGROUND Link
+https://www.edaplayground.com/x/5ZUd
