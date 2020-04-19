@@ -8,8 +8,8 @@ Transmitter and Receiver must have process the data at same frequency which is c
 
 ## Data Stream
 Start Bit: Always low and initially the receiver is driven high. Whenever zero is found it understand this is start bit of a data stream.
-Data 0-7: Actual 8-bit data that is supposed to be transmitted and received.
-Stop Bit: End of the data stream and always high.
+<br>Data 0-7: Actual 8-bit data that is supposed to be transmitted and received.
+<br>Stop Bit: End of the data stream and always high.
 
 ## Transmitter Operation
 ![transmit](https://user-images.githubusercontent.com/16850746/79694842-cb8ce280-8294-11ea-85ff-59ac638276dd.PNG)
